@@ -1,6 +1,6 @@
 <?php
 
-namespace GeneroWP\BlockBoilerplate\Common;
+namespace GeneroWP\BlockInstafeed\Common;
 
 trait EnqueueFilemtime
 {

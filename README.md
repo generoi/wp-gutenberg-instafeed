@@ -1,4 +1,4 @@
-# wp-gutenberg-boilerplate
+# wp-gutenberg-instafeed
 
 > A wordpress gutenberg boilerplate block
 

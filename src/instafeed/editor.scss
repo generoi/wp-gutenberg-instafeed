@@ -1,0 +1,18 @@
+.editor-block-list__block[data-type="genero/instafeed"] {
+  .wp-block-genero-instafeed {
+    &__link {
+      // Prevent click
+      pointer-events: none;
+    }
+
+    &__image {
+      // override core
+      max-width: none;
+    }
+  }
+
+  // Override core
+  &[data-align=full] > .editor-block-list__block-edit figure {
+    width: 1px;
+  }
+}

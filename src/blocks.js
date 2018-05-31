@@ -1,1 +1,1 @@
-import './example-block/index';
+import './instafeed/index';

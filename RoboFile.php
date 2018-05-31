@@ -9,10 +9,10 @@ class RoboFile extends \Robo\Tasks
     use \Generoi\Robo\Task\Placeholder\loadTasks;
     use \Generoi\Robo\Command\SearchReplaceCommand;
 
-    public $machineName = 'wp-gutenberg-boilerplate';
-    public $name = 'Gutenberg Plugin Boilerplate';
-    public $namespace = 'BlockBoilerplate';
-    public $description = 'A boilerplate WordPress Gutenberg block';
+    public $machineName = 'wp-gutenberg-instafeed';
+    public $name = 'Gutenberg Instafeed';
+    public $namespace = 'BlockInstafeed';
+    public $description = 'An Instagram feed block for WordPress Gutenberg';
 
     public function rename($machineName = null, $options = [
         'force' => false,

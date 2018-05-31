@@ -1,8 +1,8 @@
 <?php
 
-namespace GeneroWP\BlockBoilerplate\Common;
+namespace GeneroWP\BlockInstafeed\Common;
 
-use GeneroWP\BlockBoilerplate\Plugin;
+use GeneroWP\BlockInstafeed\Plugin;
 
 trait Templating
 {
@@ -25,10 +25,15 @@ trait Templating
                 return Timber::fetch($template, $attributes);
             }
         }
-        return $this->renderPhpTemplate(__DIR__ . "views/$slug.php");
+        return $this->renderPhpTemplate($this->getDir() . "/views/$slug.php", $attributes);
     }
 
-    public function renderPhpTemplate($path, $attributes)
+    protected function getDir()
+    {
+        return dirname((new \ReflectionClass(static::class))->getFileName());
+    }
+
+    public function renderPhpTemplate($path, $attributes = [])
     {
         extract($attributes);
         ob_start();

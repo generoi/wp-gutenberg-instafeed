@@ -1,0 +1,44 @@
+.wp-block-genero-instafeed {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  margin-left: -8px;
+  margin-right: -8px;
+
+  &.is-fit {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  &__figure {
+    // Do not let caption grow larger than image.
+    display: table;
+    width: 1px;
+    margin: 0;
+  }
+
+  &__caption {
+    font-size: 80%;
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__image {
+    display: block;
+    max-width: none;
+
+    .alignfull & {
+      width: auto;
+    }
+  }
+
+  &.has-gutter {
+    .wp-block-genero-instafeed__item {
+      margin: 8px;
+    }
+  }
+}
+

@@ -1,9 +1,9 @@
 {
-  "name": "generoi/wp-gutenberg-boilerplate",
+  "name": "generoi/wp-gutenberg-instafeed",
   "type": "wordpress-plugin",
   "license": "MIT",
   "description": "A boilerplate WordPress Gutenberg plugin",
-  "homepage": "https://github.com/generoi/wp-gutenberg-boilerplate",
+  "homepage": "https://github.com/generoi/wp-gutenberg-instafeed",
   "authors": [
     {
       "name": "Oskar Schöldström",
@@ -15,7 +15,7 @@
     "gutenberg"
   ],
   "support": {
-    "issues": "https://github.com/generoi/wp-gutenberg-boilerplate/issues"
+    "issues": "https://github.com/generoi/wp-gutenberg-instafeed/issues"
   },
   "repositories": [
     {
@@ -39,7 +39,7 @@
   },
   "autoload": {
     "psr-4": {
-      "GeneroWP\\BlockBoilerplate\\": "src/"
+      "GeneroWP\\BlockInstafeed\\": "src/"
     }
   },
   "scripts": {

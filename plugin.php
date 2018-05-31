@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name:        Gutenberg Plugin Boilerplate
+Plugin Name:        Gutenberg Instafeed
 Plugin URI:         http://genero.fi
-Description:        A boilerplate WordPress Gutenberg block
+Description:        An Instagram feed block for WordPress Gutenberg
 Version:            1.0.0
 Author:             Genero
 Author URI:         http://genero.fi/
 License:            MIT License
 License URI:        http://opensource.org/licenses/MIT
 */
-namespace GeneroWP\BlockBoilerplate;
+namespace GeneroWP\BlockInstafeed;
 
 use Puc_v4_Factory;
 
@@ -27,10 +27,10 @@ class Plugin
     use Common\EnqueueFilemtime;
 
     public $version = '1.0.0';
-    public $plugin_name = 'wp-gutenberg-boilerplate';
+    public $plugin_name = 'wp-gutenberg-instafeed';
     public $plugin_path;
     public $plugin_url;
-    public $github_url = 'https://github.com/generoi/wp-gutenberg-boilerplate';
+    public $github_url = 'https://github.com/generoi/wp-gutenberg-instafeed';
 
     public function __construct()
     {

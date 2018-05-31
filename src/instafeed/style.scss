@@ -9,6 +9,7 @@
   &.is-fit {
     flex-wrap: nowrap;
     justify-content: flex-start;
+    overflow: hidden;
   }
 
   &__figure {

@@ -85,6 +85,9 @@ class Instafeed
 
         if (!($data = get_transient($transient_id))) {
             $media = $this->scrape($type, $search);
+            if (is_wp_error($media)) {
+                return [];
+            }
             $media = $this->normalize($media);
 
             $data = base64_encode(serialize($media));

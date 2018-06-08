@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3be79d60aac3f69f539065a2fe89ab32",
+    "content-hash": "35924639ca4252e8584992921a1ea5c3",
     "packages": [
         {
             "name": "composer/installers",
@@ -125,6 +125,64 @@
                 "zikula"
             ],
             "time": "2017-12-29T09:13:20+00:00"
+        },
+        {
+            "name": "generoi/wp-genero-common",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/generoi/wp-genero-common.git",
+                "reference": "5b43eed1dde00b9ec355c3bdc6c31b38a6d5a0f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/generoi/wp-genero-common/zipball/5b43eed1dde00b9ec355c3bdc6c31b38a6d5a0f8",
+                "reference": "5b43eed1dde00b9ec355c3bdc6c31b38a6d5a0f8",
+                "shasum": ""
+            },
+            "archive": {
+                "exclude": [
+                    ".gitignore"
+                ]
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^2.5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GeneroWP\\Common\\": "src/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpcs"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oskar Schöldström",
+                    "email": "public@oxy.fi"
+                }
+            ],
+            "description": "Shared PHP logic for Genero WP plugins",
+            "homepage": "https://github.com/generoi/wp-genero-common",
+            "keywords": [
+                "gutenberg",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/generoi/wp-genero-common/issues",
+                "source": "https://github.com/generoi/wp-genero-common/tree/master"
+            },
+            "time": "2018-06-07T13:32:24+00:00"
         },
         {
             "name": "yahnis-elsts/plugin-update-checker",

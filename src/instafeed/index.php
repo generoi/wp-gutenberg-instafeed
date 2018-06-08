@@ -19,7 +19,6 @@ class Instafeed
             'attributes' => [
                 'align' => [
                     'type' => 'string',
-                    'default' => 'full',
                 ],
                 'search' => [
                     'type' => 'string',
@@ -35,7 +34,7 @@ class Instafeed
                 ],
                 'layout' => [
                     'type' => 'string',
-                    'default' => 'grid',
+                    'default' => 'masonry',
                 ],
                 'caption' => [
                     'type' => 'boolean',
@@ -43,7 +42,7 @@ class Instafeed
                 ],
                 'limit' => [
                     'type' => 'number',
-                    'default' => 8,
+                    'default' => 12,
                 ],
                 'resolution' => [
                     'type' => 'string',
@@ -65,6 +64,14 @@ class Instafeed
         $classes[] = !empty($attributes['resolution']) ? "is-{$attributes['resolution']}": '';
         $attributes['classes'] = array_filter($classes);
         $attributes['media'] = $this->getMedia($attributes);
+
+        if ($attributes['layout'] === 'masonry') {
+            wp_enqueue_script('masonry');
+            $attributes['masonry'] = [
+                'itemSelector' => '.wp-block-genero-instafeed__item',
+                'fitWidth' => true,
+            ];
+        }
 
         return $this->template('gutenberg', 'views/instafeed.php', $attributes);
     }

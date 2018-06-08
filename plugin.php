@@ -61,6 +61,7 @@ class Plugin
 
     public function block_editor_assets()
     {
+        wp_enqueue_script('masonry');
 
         $this->enqueueScript('wp-gutenberg-instafeed/block/js', 'dist/blocks.build.js', ['wp-blocks', 'wp-i18n', 'wp-element', 'masonry', 'jquery']);
         $this->enqueueStyle('wp-gutenberg-instafeed/block/editor/css', 'dist/blocks.editor.build.css', ['wp-edit-blocks']);

@@ -1,5 +1,10 @@
 .editor-block-list__block[data-type="genero/instafeed"] {
   .wp-block-genero-instafeed {
+    // Hide duplicate title in editor.
+    &__title {
+      display: none;
+    }
+
     &__link {
       // Prevent click
       pointer-events: none;

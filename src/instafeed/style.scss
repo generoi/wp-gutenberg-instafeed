@@ -1,15 +1,24 @@
 .wp-block-genero-instafeed {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
   margin-left: -8px;
   margin-right: -8px;
 
-  &.is-fit {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow: hidden;
+  &__title {
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    margin-left: auto;
+    margin-right: auto;
+
+    .wp-block-genero-instafeed.is-fit & {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow: hidden;
+    }
   }
 
   &__figure {

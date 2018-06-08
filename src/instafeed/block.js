@@ -1,7 +1,9 @@
+import CustomServerSideRender from './CustomServerSideRender';
+
 const { __ } = wp.i18n;
-const { InspectorControls } = wp.blocks;
 const { Component, Fragment } = wp.element;
-const { TextControl, ToggleControl, RangeControl, SelectControl, ServerSideRender } = wp.components;
+const { ToggleControl, RangeControl, SelectControl } = wp.components;
+const { RichText, InspectorControls } = wp.editor;
 
 export default class InstafeedBlock extends Component {
   constructor() {
@@ -26,30 +28,10 @@ export default class InstafeedBlock extends Component {
     ];
 
     const layoutOptions = [
+      { value: 'masonry', label: __('masonry') },
       { value: 'grid', label: __('grid') },
       { value: 'fit', label: __('fit together') },
     ];
-
-    const searchInput = (
-      <div>
-        <TextControl
-          key="search-input"
-          value={ search }
-          onChange={ value => setAttributes({ search: value }) }
-          onKeyUp={ () => {
-            clearTimeout(this.state.timer);
-            const timer = setTimeout(() => this.setState({ isDoneTyping: true }), this.duration);
-            this.setState({timer: timer});
-          } }
-          onKeyDown={() => {
-            this.setState({ isDoneTyping: false });
-            clearTimeout(this.state.timer)
-          } }
-          style={{textAlign: 'center', border: 'solid 1px rgba(100,100,100,0.25)'}}
-          placeholder={ __('@username or #hashtag') }
-        />
-      </div>
-    );
 
     const inspectorControls = (
       <InspectorControls>
@@ -95,27 +77,54 @@ export default class InstafeedBlock extends Component {
           checked={ caption }
           onChange={ () => setAttributes({ caption: !caption }) }
         />
-        {searchInput}
       </InspectorControls>
     );
 
-    const controls = (
-      <Fragment>
-        { inspectorControls }
-      </Fragment>
+    const searchInput = (
+      <RichText
+        key="search-input"
+        format="string"
+        tagName="h3"
+        keepPlaceholderOnFocus="true"
+        autocompleters={ [] }
+        style={ { textAlign: 'center' } }
+        value={ search }
+        onChange={ value => {
+          clearTimeout(this.state.timer);
+          const timer = setTimeout(() => this.setState({ isDoneTyping: true }), this.duration);
+          this.setState({ isDoneTyping: false, timer: timer});
+
+          setAttributes({ search: value })
+        } }
+        placeholder={ __('@username or #hashtag') }
+      />
     );
 
+    const initMasonry = (node) => {
+      const el = jQuery(node).find('.js-masonry');
+      if (el.length && !el.data('masonry')) {
+        const data = el.data('masonry-options') || {};
+        window.setTimeout(() => el.masonry(data), 1000);
+      }
+    }
 
     return (
       <Fragment>
-        { controls }
-        { (!search || !this.state.isDoneTyping) ?
-            searchInput
-          : (
-            <ServerSideRender
-              block="genero/instafeed"
-              attributes={ attributes }
-            />
+        { inspectorControls }
+        { searchInput }
+        {
+          search && this.state.isDoneTyping ? (
+            <Fragment>
+              <CustomServerSideRender
+                block="genero/instafeed"
+                attributes={ attributes }
+                onUpdate={ initMasonry }
+              />
+            </Fragment>
+          ) : (
+            <div key="loading" className="wp-block-embed is-loading">
+              <p>{ __( 'Type a username or hashtag to search for in the field above...' ) }</p>
+            </div>
           )
         }
       </Fragment>

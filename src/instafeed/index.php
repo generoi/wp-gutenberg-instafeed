@@ -69,7 +69,7 @@ class Instafeed
             wp_enqueue_script('masonry');
             $attributes['masonry'] = [
                 'itemSelector' => '.wp-block-genero-instafeed__item',
-                'fitWidth' => true,
+                'isFitWidth' => true,
             ];
         }
 

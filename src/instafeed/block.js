@@ -1,19 +1,57 @@
 import CustomServerSideRender from './CustomServerSideRender';
 
 const { __ } = wp.i18n;
-const { Component, Fragment } = wp.element;
+const { Component, Fragment, createRef } = wp.element;
 const { ToggleControl, RangeControl, SelectControl } = wp.components;
 const { RichText, InspectorControls } = wp.editor;
+const { select, subscribe } = wp.data;
+const { findDOMNode } = wp.element;
 
 export default class InstafeedBlock extends Component {
   constructor() {
     super(...arguments);
+
+    subscribe(this.subscribe.bind(this));
+
+    this.serverSideRef = createRef();
+    this.initMasonry = this.initMasonry.bind(this);
+    this.reflowMasonry = this.reflowMasonry.bind(this);
+    this.sidebarOpen = false;
+    this.masonryElement = null;
 
     this.state = {
       isDoneTyping: true,
       timer: null,
     };
     this.duration = 1000;
+  }
+
+  subscribe() {
+    const sidebarOpen = !!select('core/edit-post').getActiveGeneralSidebarName();
+    if (sidebarOpen !== this.sidebarOpen) {
+      window.setTimeout(this.reflowMasonry, 200);
+      this.sidebarOpen = sidebarOpen;
+    }
+  }
+
+  initMasonry() {
+    if (!this.serverSideRef.current) {
+      return;
+    }
+
+    const node = findDOMNode(this.serverSideRef.current);
+    const el = jQuery(node).find('.js-masonry');
+    if (el.length && !el.data('masonry')) {
+      const data = el.data('masonry-options') || {};
+      window.setTimeout(() => el.masonry(data), 1000);
+      this.masonryElement = el;
+    }
+  }
+
+  reflowMasonry() {
+    if (this.masonryElement) {
+      this.masonryElement.masonry('layout');
+    }
   }
 
   render() {
@@ -100,14 +138,6 @@ export default class InstafeedBlock extends Component {
       />
     );
 
-    const initMasonry = (node) => {
-      const el = jQuery(node).find('.js-masonry');
-      if (el.length && !el.data('masonry')) {
-        const data = el.data('masonry-options') || {};
-        window.setTimeout(() => el.masonry(data), 1000);
-      }
-    }
-
     return (
       <Fragment>
         { inspectorControls }
@@ -118,7 +148,8 @@ export default class InstafeedBlock extends Component {
               <CustomServerSideRender
                 block="genero/instafeed"
                 attributes={ attributes }
-                onUpdate={ initMasonry }
+                onUpdate={ this.initMasonry }
+                ref={ this.serverSideRef }
               />
             </Fragment>
           ) : (

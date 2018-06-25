@@ -1,20 +1,19 @@
+import isEqual from 'lodash/isEqual';
+
 const { ServerSideRender } = wp.components;
-const { findDOMNode } = wp.element;
 
+// https://github.com/WordPress/gutenberg/issues/7346
 export class CustomServerSideRender extends ServerSideRender {
-  constructor(props) {
-    super(props);
-
-    this.onUpdate = this.onUpdate.bind(this);
-  }
-
-  componentDidUpdate() {
-    this.onUpdate(findDOMNode(this));
-  }
-
-  onUpdate(event) {
-    if (this.props.onUpdate) {
-      this.props.onUpdate(event);
+  componentDidUpdate(prevProps, prevState) {
+    // core
+    if (!isEqual(prevProps, this.props)) {
+      this.fetch(this.props);
+    }
+    // custom
+    if (this.state.response !== prevState.response) {
+      if (this.props.onUpdate) {
+        this.props.onUpdate();
+      }
     }
   }
 }

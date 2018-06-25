@@ -29,7 +29,15 @@
   }
 
   &__caption {
-    font-size: 80%;
+    display: table-row;
+
+    p {
+      font-size: 0.8rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-all;
+      hyphens: auto;
+    }
   }
 
   &__link {
@@ -40,6 +48,7 @@
     display: block;
     max-width: none;
 
+    .alignwide &,
     .alignfull & {
       width: auto;
     }

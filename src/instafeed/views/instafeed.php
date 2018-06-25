@@ -1,6 +1,6 @@
 <div class="wp-block-genero-instafeed <?php echo implode(' ', $classes); ?>">
   <?php if (!empty($search)) : ?>
-    <h3 class="wp-block-genero-instafeed__title"><?php echo esc_html($search); ?></h3>
+    <h2 class="wp-block-genero-instafeed__title"><?php echo esc_html($search); ?></h2>
   <?php endif; ?>
   <div class="wp-block-genero-instafeed__list<?php echo !empty($masonry) ? ' js-masonry' : '' ?>" <?php if (!empty($masonry)) : ?>data-masonry-options='<?php echo json_encode($masonry); ?>'<?php endif; ?>>
     <?php foreach (array_slice($media, 0, $limit) as $instance) : ?>
@@ -21,7 +21,7 @@
             />
             <?php if ($caption) : ?>
               <figcaption class="wp-block-genero-instafeed__caption">
-                <?php echo wp_trim_words($description, 20); ?>
+                <p><?php echo wp_trim_words($description, 80); ?></p>
               </figcaption>
             <?php endif; ?>
           </figure>

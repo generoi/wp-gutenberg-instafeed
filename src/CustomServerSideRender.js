@@ -1,6 +1,5 @@
-import isEqual from 'lodash/isEqual';
-
-const { ServerSideRender } = wp.components;
+import { isEqual } from 'lodash';
+import { ServerSideRender } from '@wordpress/components';
 
 // https://github.com/WordPress/gutenberg/issues/7346
 export class CustomServerSideRender extends ServerSideRender {

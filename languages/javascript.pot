@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: src/edit.js:101
+msgid "Add a gutter between images."
+msgstr ""
+
+#: src/edit.js:107
+msgid "Wrap the images with a link to the photo on Instagram."
+msgstr ""
+
+#: src/edit.js:113
+msgid "Display caption."
+msgstr ""
+
+#: src/edit.js:136
+msgid "@username or #hashtag"
+msgstr ""
+
+#: src/edit.js:156
+msgid "Type a username or hashtag to search for in the field above..."
+msgstr ""
+
+#: src/edit.js:61
+msgid "thumbnail (150x150)"
+msgstr ""
+
+#: src/edit.js:62
+msgid "small (240x240)"
+msgstr ""
+
+#: src/edit.js:63
+msgid "medium (320x320)"
+msgstr ""
+
+#: src/edit.js:64
+msgid "large (640x640)"
+msgstr ""
+
+#: src/edit.js:68
+msgid "masonry"
+msgstr ""
+
+#: src/edit.js:69
+msgid "grid"
+msgstr ""
+
+#: src/edit.js:70
+msgid "fit together"
+msgstr ""
+
+#: src/edit.js:77
+msgid "Layout"
+msgstr ""
+
+#: src/edit.js:85
+msgid "Limit"
+msgstr ""
+
+#: src/edit.js:93
+msgid "Resolution"
+msgstr ""
+
+#: src/index.js:16
+msgid "instagram"
+msgstr ""
+
+#: src/index.js:17
+msgid "instafeed"
+msgstr ""
+
+#: src/index.js:18
+msgid "social"
+msgstr ""
+
+#: src/index.js:8
+msgid "Instagram feed"
+msgstr ""

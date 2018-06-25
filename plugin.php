@@ -48,23 +48,31 @@ class Plugin
     {
         add_action('enqueue_block_assets', [$this, 'block_assets']);
         add_action('enqueue_block_editor_assets', [$this, 'block_editor_assets']);
+        add_action('init', [$this, 'load_textdomain']);
 
-        foreach (glob(__DIR__ . '/src/*/index.php') as $component) {
-            require $component;
-        }
+        Instafeed::getInstance();
     }
 
     public function block_assets()
     {
-        $this->enqueueStyle('wp-gutenberg-instafeed/block/css', 'dist/blocks.style.build.css', ['wp-blocks']);
+        $this->enqueueStyle('wp-gutenberg-instafeed/css', 'dist/style.css', ['wp-blocks']);
     }
 
     public function block_editor_assets()
     {
         wp_enqueue_script('masonry');
 
-        $this->enqueueScript('wp-gutenberg-instafeed/block/js', 'dist/blocks.build.js', ['wp-blocks', 'wp-i18n', 'wp-element', 'masonry', 'jquery']);
-        $this->enqueueStyle('wp-gutenberg-instafeed/block/editor/css', 'dist/blocks.editor.build.css', ['wp-edit-blocks']);
+        $this->enqueueStyle('wp-gutenberg-instafeed/editor/css', 'dist/editor.css', ['wp-edit-blocks']);
+        $this->enqueueScript('wp-gutenberg-instafeed/editor/js', 'dist/index.js', ['wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor', 'wp-data', 'masonry', 'jquery']);
+        $this->localizeScript('wp-gutenberg-instafeed/editor/js', gutenberg_get_jed_locale_data($this->plugin_name));
+    }
+
+    public function load_textdomain()
+    {
+        // WP Performance Pack
+        include __DIR__ . '/languages/javascript.php';
+
+        load_plugin_textdomain($this->plugin_name, false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 }
 

@@ -1,7 +1,5 @@
-import './style.scss';
-import './editor.scss';
 import blockIcons from './icons'
-import InstafeedBlock from './block';
+import InstafeedBlock from './edit';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
@@ -26,4 +24,3 @@ registerBlockType('genero/instafeed', {
     return null;
   },
 });
-

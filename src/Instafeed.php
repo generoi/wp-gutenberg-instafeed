@@ -1,6 +1,6 @@
 <?php
 
-namespace GeneroWP\BlockInstafeed\instafeed;
+namespace GeneroWP\BlockInstafeed;
 
 use GeneroWP\Common\Singleton;
 use GeneroWP\Common\Templating;
@@ -73,7 +73,7 @@ class Instafeed
             ];
         }
 
-        return $this->template('gutenberg', 'views/instafeed.php', $attributes);
+        return $this->template('gutenberg', '../views/instafeed.php', $attributes);
     }
 
     public function getMedia($attributes)
@@ -178,5 +178,3 @@ class Instafeed
         }
     }
 }
-
-Instafeed::getInstance();

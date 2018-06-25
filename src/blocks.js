@@ -1,1 +1,0 @@
-import './instafeed/index';

@@ -13,11 +13,11 @@
     align-items: stretch;
     margin-left: auto;
     margin-right: auto;
+    overflow: auto;
 
     .wp-block-genero-instafeed.is-fit & {
       flex-wrap: nowrap;
       justify-content: flex-start;
-      overflow: hidden;
     }
   }
 
@@ -60,4 +60,3 @@
     }
   }
 }
-

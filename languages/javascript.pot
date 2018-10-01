@@ -3,63 +3,63 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: src/edit.js:101
+#: src/edit.js:102
 msgid "Add a gutter between images."
 msgstr ""
 
-#: src/edit.js:107
+#: src/edit.js:108
 msgid "Wrap the images with a link to the photo on Instagram."
 msgstr ""
 
-#: src/edit.js:113
+#: src/edit.js:114
 msgid "Display caption."
 msgstr ""
 
-#: src/edit.js:136
+#: src/edit.js:137
 msgid "@username or #hashtag"
 msgstr ""
 
-#: src/edit.js:156
+#: src/edit.js:157
 msgid "Type a username or hashtag to search for in the field above..."
 msgstr ""
 
-#: src/edit.js:61
+#: src/edit.js:62
 msgid "thumbnail (150x150)"
 msgstr ""
 
-#: src/edit.js:62
+#: src/edit.js:63
 msgid "small (240x240)"
 msgstr ""
 
-#: src/edit.js:63
+#: src/edit.js:64
 msgid "medium (320x320)"
 msgstr ""
 
-#: src/edit.js:64
+#: src/edit.js:65
 msgid "large (640x640)"
 msgstr ""
 
-#: src/edit.js:68
+#: src/edit.js:69
 msgid "masonry"
 msgstr ""
 
-#: src/edit.js:69
+#: src/edit.js:70
 msgid "grid"
 msgstr ""
 
-#: src/edit.js:70
+#: src/edit.js:71
 msgid "fit together"
 msgstr ""
 
-#: src/edit.js:77
+#: src/edit.js:78
 msgid "Layout"
 msgstr ""
 
-#: src/edit.js:85
+#: src/edit.js:86
 msgid "Limit"
 msgstr ""
 
-#: src/edit.js:93
+#: src/edit.js:94
 msgid "Resolution"
 msgstr ""
 

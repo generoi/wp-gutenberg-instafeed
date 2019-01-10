@@ -55,7 +55,7 @@ class Plugin
 
     public function block_assets()
     {
-        $this->enqueueStyle('wp-gutenberg-instafeed/css', 'dist/style.css', ['wp-blocks']);
+        $this->enqueueStyle('wp-gutenberg-instafeed/css', 'dist/style.css', ['wp-edit-blocks']);
     }
 
     public function block_editor_assets()
@@ -64,7 +64,7 @@ class Plugin
 
         $this->enqueueStyle('wp-gutenberg-instafeed/editor/css', 'dist/editor.css', ['wp-edit-blocks']);
         $this->enqueueScript('wp-gutenberg-instafeed/editor/js', 'dist/index.js', ['wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor', 'wp-data', 'masonry', 'jquery']);
-        $this->localizeScript('wp-gutenberg-instafeed/editor/js', gutenberg_get_jed_locale_data($this->plugin_name));
+        wp_set_script_translations('wp-gutenberg-instafeed/editor/js', $this->plugin_name);
     }
 
     public function load_textdomain()

@@ -55,7 +55,7 @@ class Plugin
 
     public function block_assets()
     {
-        $this->enqueueStyle('wp-gutenberg-instafeed/css', 'dist/style.css', ['wp-edit-blocks']);
+        $this->enqueueStyle('wp-gutenberg-instafeed/css', 'dist/style.css');
     }
 
     public function block_editor_assets()

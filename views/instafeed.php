@@ -6,22 +6,23 @@
     <?php foreach (array_slice($media, 0, $limit) as $instance) : ?>
       <div class="wp-block-genero-instafeed__item">
         <?php if ($links) : ?>
-          <a class="wp-block-genero-instafeed__link" href="<?php echo $instance->link; ?>" target="_blank">
+            <a class="wp-block-genero-instafeed__link" href="<?php echo $instance->link; ?>" target="_blank" aria-label="<?php echo __('See image on Instagram', 'wp-gutenberg-instafeed'); ?>">
         <?php endif; ?>
           <figure class="wp-block-genero-instafeed__figure">
             <?php $image = $instance->media->{$resolution}; ?>
-            <?php $description = preg_replace('/\s+/', ' ', esc_attr($instance->caption)); ?>
+            <?php $description = trim(preg_replace('/\s+/', ' ', esc_attr($instance->caption))); ?>
+            <?php $description = wp_trim_words($description, 80); ?>
             <img
               class="wp-block-genero-instafeed__image"
               src="<?php echo esc_url($image->src); ?>"
               width="<?php echo esc_attr($image->config_width); ?>"
               height="<?php echo esc_attr($image->config_height); ?>"
-              alt="<?php echo $description; ?>"
-              title="<?php echo $description; ?>"
+              alt="<?php echo esc_attr($description); ?>"
+              title="<?php echo esc_attr($description); ?>"
             />
             <?php if ($caption) : ?>
               <figcaption class="wp-block-genero-instafeed__caption">
-                <p><?php echo wp_trim_words($description, 80); ?></p>
+                <p><?php echo $description; ?></p>
               </figcaption>
             <?php endif; ?>
           </figure>

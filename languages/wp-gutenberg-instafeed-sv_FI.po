@@ -101,3 +101,7 @@ msgstr ""
 #: src/Instafeed.php:129, src/Instafeed.php:137, src/Instafeed.php:140
 msgid "Instagram has returned invalid data."
 msgstr ""
+
+#: views/instafeed.php:9
+msgid "See image on Instagram"
+msgstr "Näyttä kuva Instagramissa"

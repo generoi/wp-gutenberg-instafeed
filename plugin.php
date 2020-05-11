@@ -63,7 +63,7 @@ class Plugin
         wp_enqueue_script('masonry');
 
         $this->enqueueStyle('wp-gutenberg-instafeed/editor/css', 'dist/editor.css', ['wp-edit-blocks']);
-        $this->enqueueScript('wp-gutenberg-instafeed/editor/js', 'dist/index.js', ['wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor', 'wp-data', 'masonry', 'jquery']);
+        $this->enqueueScript('wp-gutenberg-instafeed/editor/js', 'dist/index.js', ['wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor', 'wp-data', 'wp-server-side-render', 'masonry', 'jquery']);
         wp_set_script_translations('wp-gutenberg-instafeed/editor/js', $this->plugin_name);
     }
 

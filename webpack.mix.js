@@ -29,5 +29,6 @@ mix.webpackConfig({
     '@wordpress/editPost': 'wp.editPost',
     '@wordpress/plugins': 'wp.plugins',
     '@wordpress/apiRequest': 'wp.apiRequest',
+    '@wordpress/server-side-render': 'wp.serverSideRender',
   },
 });
